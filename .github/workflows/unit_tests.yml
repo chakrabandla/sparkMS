@@ -1,0 +1,19 @@
+name: Unit testing workflow
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    runs-on: jupyter/pyspark-notebook
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run tests
+        run: |
+          pip3 install -r sparkms/requirements.txt
+          pip3 install -r tests/requirements.txt
+          cd tests/
+          ls
+          pytest json_to_parquet_test.py

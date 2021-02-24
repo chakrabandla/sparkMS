@@ -1,5 +1,6 @@
 # Peptide information
 USI = 'usi'
+PROJECT_ACCESSION = 'project_accession'
 PX_PROJECT_ACCESSION  = 'px_accession' #assay accession
 PEPTIDE = 'peptide_sequence'
 MODIFIED_PEPTIDE = 'modified_peptide_sequence'

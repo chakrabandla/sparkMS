@@ -6,7 +6,7 @@ from pyspark.sql.functions import explode, countDistinct
 from sparkms.commons import Fields, psmtable
 
 
-@click.command('psm_table', short_help='')
+@click.command('protein_stats', short_help='')
 @click.option('-psm', help="Input psm parquet files. ie., /path/to/", required=True)
 @click.option('-tpsm', help="Input psm_table parquet files. ie., /path/to/", required=True)
 @click.option('-pep', help="Input peptide parquet files. ie., /path/to/", required=True)

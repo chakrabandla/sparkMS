@@ -10,6 +10,7 @@ import click
 
 from sparkms.commands.json_to_parquet import json_to_parquet
 from sparkms.commands.psm_table import psm_table
+from sparkms.commands.protein_stats import protein_stats
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
@@ -22,6 +23,7 @@ def cli():
 
 cli.add_command(json_to_parquet)
 cli.add_command(psm_table)
+cli.add_command(protein_stats)
 
 
 def main():

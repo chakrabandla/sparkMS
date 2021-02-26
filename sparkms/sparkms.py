@@ -8,9 +8,9 @@ This is the main tool that give access to all commands and options provided by t
 """
 import click
 
-from sparkms.commands.json_to_parquet import json_to_parquet
-from sparkms.commands.psm_table import psm_table
-from sparkms.commands.protein_stats import protein_stats
+from commands.json_to_parquet import json_to_parquet
+from commands.psm_table import psm_table
+from commands.protein_stats import protein_stats
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 

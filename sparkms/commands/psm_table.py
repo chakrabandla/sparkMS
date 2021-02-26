@@ -3,7 +3,7 @@ import sys
 import click
 from pyspark.sql import SparkSession, functions
 from pyspark.sql.functions import explode
-from sparkms.commons import Fields, psmtable
+from commons import Fields, psmtable
 
 
 @click.command('psm_table', short_help='')
@@ -29,7 +29,7 @@ def psm_table(psm, pep, out_path):
         .select(df_psm_filtered.usi, Fields.EXTERNAL_PROJECT_ACCESSION, Fields.ASSAY_ACCESSION, Fields.PEPTIDE_SEQUENCE, Fields.MODIFIED_PEPTIDE_SEQUENCE, Fields.PROTEIN_ACCESSION, 'additionalAttributes.name', 'additionalAttributes.value', Fields.CHARGE, Fields.PRECURSOR_MASS, Fields.IS_DECOY)\
         .toDF(psmtable.USI, psmtable.PROJECT_ACCESSION, psmtable.PX_PROJECT_ACCESSION, psmtable.PEPTIDE, psmtable.MODIFIED_PEPTIDE, psmtable.PROTEINS, psmtable.ID_SCORE_NAME, psmtable.ID_SCORE_VALUE, psmtable.CHARGE, psmtable.MASS, psmtable.IS_DECOY)
     # df_join.show(truncate=False)
-    df_join.write.parquet(out_path, mode='append', compression='snappy')
+    df_join.write.parquet(out_path, mode='append', partitionBy=[psmtable.PROJECT_ACCESSION], compression='snappy')
 
 
 if __name__ == '__main__':

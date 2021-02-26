@@ -3,7 +3,7 @@ import sys
 import click
 from pyspark.sql import SparkSession, functions
 from pyspark.sql.functions import explode, countDistinct
-from sparkms.commons import Fields, psmtable
+from commons import Fields, psmtable
 
 
 @click.command('protein_stats', short_help='')
